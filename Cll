@@ -1,0 +1,125 @@
+#include <iostream>
+using namespace std;
+//creating node
+struct node{
+    int info;
+    node*next;
+};
+//declaring pointer variables that store addresss of nodes
+node *beg, *newnode, *ptr;
+
+//declaring functions
+void insertion();
+void deletion();
+void traversal(struct node*ptr);
+
+//main function
+int main(){
+//declare variables for accepting user choice
+    char ch;
+    int choice;
+    beg = NULL;
+    do{
+        cout<<"Enter 1 for traversal \n Enter 2 for insertion \n  Enter 3 for deletion \n Enter 4 for Searching \n Enter 5 to exit \n";
+        cin>>choice;
+        switch(choice){
+            case 1: traversal(beg);
+            break;
+           
+           case 2: insertion();
+            break;
+            case 3: 
+            if(beg==NULL){
+                cout<<"No nodes, Deletion not possible";
+                }
+                else{
+                    deletion();
+                }
+            break;
+            
+            case 5:
+            exit(0);
+            break;
+           
+            default:
+            cout<<"Incorrect choice";
+        }
+        cout<<"\nDo you want to continue?";
+        cout<<" (Press y/n): ";
+        cin>>ch;
+    }while(ch=='y');
+   
+return 0;
+   
+}
+
+
+void traversal(struct node *ptr){
+if(beg==NULL){
+	cout<<"Linked list empty \n";
+}
+else{
+	cout<<beg->info<<"\t";
+	ptr=beg->next;
+	while(ptr!=beg){
+		cout<<"\t"<<ptr->info;
+		ptr=ptr->next;
+	}
+  }
+}
+
+void insertion(){
+    int ch,c;
+    cout<<"\n1. At start \n2. At end \n";
+    cout<<"\nEnter your choice: ";
+    cin>>ch;
+    switch(ch){
+        case 1:
+        newnode= new node();//khaali dabba
+        cout<<"\nEnter Data: ";
+        cin>>newnode->info;
+        newnode->next=beg;
+        ptr=beg;
+        while(ptr->next!=beg){
+        	ptr=ptr->next;
+		}
+		ptr->next=newnode;
+		beg=newnode;
+        break;
+       
+        case 2:
+        	newnode= new node();//khaali dabba
+        cout<<"\nEnter Data: ";
+        cin>>newnode->info;
+        newnode->next=beg;
+        ptr=beg;
+        while(ptr->next!=beg){
+        	ptr=ptr->next;
+		}
+		ptr->next=newnode;
+		        	
+        break;
+       
+        case 3:
+        break;
+    }
+}
+
+void deletion(){
+    int ch,c;
+    cout<<"\n1. At start \n2. At end \n3. At a particular position";
+    cout<<"\nEnter your choice: ";
+    cin>>ch;
+    switch(ch){
+        case 1:
+        break;
+       
+        case 2:
+        break;
+       
+        case 3:
+        break;
+    }
+}
+
+
